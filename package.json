@@ -44,8 +44,9 @@
     "konva": ">3.2.5",
     "nwb": "^0.25.2",
     "sinon": "^7.3.0",
-    "vue2": "npm:vue@2.7.14",
-    "vue-template-compiler": "2.7.14"
+    "vue": "^2.6.11",
+    "vue-template-compiler": "2.7.14",
+    "vue2": "npm:vue@2.7.14"
   },
   "engines": {
     "node": ">= 4.0.0",
