@@ -13,7 +13,7 @@ module.exports = {
     umd: {
       global: 'VueKonva',
       externals: {
-        vue: 'Vue',
+        vue2: 'vue2',
         konva: 'Konva',
       },
     },

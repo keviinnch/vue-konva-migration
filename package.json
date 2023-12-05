@@ -1,6 +1,6 @@
 {
-  "name": "vue-konva",
-  "version": "2.1.7",
+  "name": "@kvnchn/vue-konva",
+  "version": "0.1.0",
   "description": "Vue binding to canvas element via Konva framework",
   "keywords": [
     "vue",
@@ -8,7 +8,7 @@
     "canvas"
   ],
   "homepage": "https://github.com/konvajs/vue-konva#readme",
-  "author": "Rafael Escala <rafaesc92@gmail.com>",
+  "author": "kevinchandra.kvn@gmail.com",
   "main": "umd/vue-konva.js",
   "types": "index.d.ts",
   "vetur": {
@@ -19,20 +19,6 @@
     "umd",
     "index.d.ts",
     "vetur/"
-  ],
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/lavrton"
-    },
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/konva"
-    },
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/lavrton"
-    }
   ],
   "repository": {
     "type": "git",
@@ -58,8 +44,8 @@
     "konva": ">3.2.5",
     "nwb": "^0.25.2",
     "sinon": "^7.3.0",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue2": "npm:vue@2.7.14",
+    "vue-template-compiler": "2.7.14"
   },
   "engines": {
     "node": ">= 4.0.0",

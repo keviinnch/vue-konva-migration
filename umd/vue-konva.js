@@ -1,16 +1,16 @@
 /*!
- * vue-konva v2.1.5 - https://github.com/konvajs/vue-konva#readme
+ * @kvnchn/vue-konva v2.1.7 - https://github.com/konvajs/vue-konva#readme
  * MIT Licensed
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("vue"), require("konva"));
+		module.exports = factory(require("vue2"), require("konva"));
 	else if(typeof define === 'function' && define.amd)
-		define(["vue", "konva"], factory);
+		define(["vue2", "konva"], factory);
 	else if(typeof exports === 'object')
-		exports["VueKonva"] = factory(require("vue"), require("konva"));
+		exports["VueKonva"] = factory(require("vue2"), require("konva"));
 	else
-		root["VueKonva"] = factory(root["Vue"], root["Konva"]);
+		root["VueKonva"] = factory(root["vue2"], root["Konva"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -125,9 +125,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: external {"root":"Vue","commonjs2":"vue","commonjs":"vue","amd":"vue"}
-var external_root_Vue_commonjs2_vue_commonjs_vue_amd_vue_ = __webpack_require__(0);
-var external_root_Vue_commonjs2_vue_commonjs_vue_amd_vue_default = /*#__PURE__*/__webpack_require__.n(external_root_Vue_commonjs2_vue_commonjs_vue_amd_vue_);
+// EXTERNAL MODULE: external {"root":"vue2","commonjs2":"vue2","commonjs":"vue2","amd":"vue2"}
+var external_root_vue2_commonjs2_vue2_commonjs_vue2_amd_vue2_ = __webpack_require__(0);
+var external_root_vue2_commonjs2_vue2_commonjs_vue2_amd_vue2_default = /*#__PURE__*/__webpack_require__.n(external_root_vue2_commonjs2_vue2_commonjs_vue2_amd_vue2_);
 
 // CONCATENATED MODULE: ./src/utils/updatePicture.js
 // adapted FROM: https://github.com/lavrton/react-konva/blob/master/src/react-konva-fiber.js
@@ -145,7 +145,7 @@ var propsToSkip = {
   isRootInsert: true
 };
 var EVENTS_NAMESPACE = '.vue-konva-event';
-function applyNodeProps(vueComponent, props, oldProps) {
+function applyNodeProps(vueComponent, props, oldProps, useStrict) {
   if (props === void 0) {
     props = {};
   }
@@ -205,7 +205,7 @@ function applyNodeProps(vueComponent, props, oldProps) {
       }
     }
 
-    if (!_isEvent && props[_key] !== oldProps[_key]) {
+    if (!_isEvent && (props[_key] !== oldProps[_key] || useStrict && props[_key] !== instance.getAttr(_key))) {
       hasUpdates = true;
       updatedProps[_key] = props[_key];
     }
@@ -301,7 +301,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-/* harmony default export */ var Stage = (external_root_Vue_commonjs2_vue_commonjs_vue_amd_vue_default.a.component('v-stage', {
+/* harmony default export */ var Stage = (external_root_vue2_commonjs2_vue2_commonjs_vue2_amd_vue2_default.a.component('v-stage', {
   render: function render(createElement) {
     return createElement('div', this.$slots.default);
   },
@@ -319,6 +319,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
       default: function _default() {
         return {};
       }
+    },
+    __useStrictMode: {
+      type: Boolean
     }
   },
   created: function created() {
@@ -357,7 +360,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
       var props = _extends({}, this.$attrs, this.config, createListener(this.$listeners));
 
-      applyNodeProps(this, props, oldProps);
+      applyNodeProps(this, props, oldProps, this.__useStrictMode);
       this.oldProps = props;
     },
     validateChildren: function validateChildren() {// TODO: add a waring if we see non-Konva element here
@@ -404,6 +407,9 @@ var CONTAINERS = {
       default: function _default() {
         return {};
       }
+    },
+    __useStrictMode: {
+      type: Boolean
     }
   }, _ref.created = function created() {
     this.initKonva();
@@ -445,7 +451,7 @@ var CONTAINERS = {
 
       var props = KonvaNode_extends({}, this.$attrs, this.config, createListener(this.$listeners));
 
-      applyNodeProps(this, props, oldProps);
+      applyNodeProps(this, props, oldProps, this.__useStrictMode);
       this.oldProps = props;
     }
   }, _ref;
